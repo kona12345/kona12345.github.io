@@ -1,0 +1,7 @@
+{
+  "name": "My PWA Sample",
+  "short_name": "MyPWA",
+  "background_color": "#fc980c",
+  "start_url": "./?utm_source=homescreen",
+  "display": "standalone"
+}
