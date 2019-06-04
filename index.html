@@ -3,10 +3,57 @@
 <head>
   <!-- manifest.jsonを読み込む -->
   <link rel="manifest" href="./manifest.json">
-  <!-- apple-mobile-web-app-capable ：URL部分を表示するか否かの設定(yesで非表示) -->
+
+  <!--
+    PC用アイコン
+    ※以前は rel="shortcut icon" と、shortcut と icon の2つを定義していたが、
+      shortcutはE8以下の対応でのみ必要なので、現在は不要。
+    ※icon より以前はリンク種別 shortcut がよく使用されていましたが、
+      これは非準拠で無視されますのでウェブ作者は今後使用してはいけません。
+    @see developer.mozilla.org/ja/docs/Web/HTML/Link_types
+   -->
+  <link rel="shortcut icon" href="/path/favicon.ico">
+  
+  <!-- スマホ用アイコン -->
+  <link rel="apple-touch-icon" href="./app-icon-120x120.png" sizes="120x120">
+ 
+  <!--
+    スプラッシュ画像（起動時に表示される画像）を指定する。
+    ※スタントアロンモードにすると、Webクリップからの起動時にスプラッシュ画像を表示できるようになる。
+   -->
+  <link
+    rel="apple-touch-startup-image"
+    href="./sample-splash.png"
+    media="
+      (device-width: 375px) and
+      (device-height: 667px) and
+      (-webkit-device-pixel-ratio: 2) and
+      (orientation: portrait)"
+  >
+
+  <!--
+    [iphone] URL部分を表示するか否かの設定
+      yes: 非表示
+      no : 表示
+   -->
   <meta name="apple-mobile-web-app-capable" content="yes">
+  
+  <!--
+    [iphone] 上部に表示するバーのスタイル
+      black: ステータスバーは黒くなる
+      black-translucent: ステータスバーは透明になる
+   -->
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="PWA TEST">
+  
+  <!-- [iphone] ホームに追加する際のタイトル -->
+  <meta name="apple-mobile-web-app-title" content="PWA sample">
+
+  <!--
+    [iphone, android] デフォルトで自動リンクの変換されるものを変換させないようにする
+    @see iwb.jp/format-detection-telephone-email-address-no/
+   --> 
+  <meta name="format-detection" content="telephone=no, email=no, address=no">
+
   <script>
     if ('serviceWorker' in navigator) {
       // service workerが有効なら、service-worker.js を登録する
@@ -20,6 +67,6 @@
 </head>
 <body>
   <h1>Hello World</h1>
-  <p>test 23:</p>
+  <p>test/p>
 </body>
 </html>
