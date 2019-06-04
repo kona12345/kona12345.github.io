@@ -6,8 +6,8 @@
   <script>
     if ('serviceWorker' in navigator) {
       // service workerが有効なら、service-worker.js を登録する
-      navigator.serviceWorker
-        .register('./service-worker.js')
+      const worker = navigator.serviceWorker;
+      worker.register('./service-worker.js')
         .then(() => {
           console.log('Service Worker Registered');
         });
@@ -16,6 +16,6 @@
 </head>
 <body>
   <h1>Hello World</h1>
-  <p>I'm hosted with GitHub Pages.</p>
+  <p>test 23:41</p>
 </body>
 </html>
